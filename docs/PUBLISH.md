@@ -10,6 +10,18 @@
 
 ---
 
+## 进度（2026-11-04）
+
+| 步骤 | 状态 |
+|---|---|
+| 元数据填充（Melatonin-CZ） | ✅ `node scripts/configure.mjs Melatonin-CZ` |
+| GitHub 仓库 | ✅ https://github.com/Melatonin-CZ/dsh-balance-strip （`main` = `7000994`，tag `v0.4.0`） |
+| 从 GitHub 安装验证 | ✅ `dsh plugin add github:Melatonin-CZ/dsh-balance-strip` → `+ dsh-balance-strip 0.4.0`（13.6s） |
+| npm 发布 | ⏳ 本机 `npm whoami` = ENEEDAUTH；`~/.npmrc` 指向 npmmirror，发布会失败。需 `npm login --registry https://registry.npmjs.org` 后 `npm publish --registry https://registry.npmjs.org --access public`（dry-run 已通过：32 files / 981.9 kB） |
+| 清单 PR | ✅ https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/11904 |
+
+> 清单接受 GitHub-only 条目，所以 PR 不必等 npm。
+
 ## 0. 名字与现状
 
 | 项 | 值 | 说明 |
