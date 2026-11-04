@@ -1,0 +1,95 @@
+{
+  "name": "dsh-balance-strip",
+  "version": "0.4.0",
+  "description": "DSH composer-dock balance strip: a 100%-green → 0%-red OKLCH ramp driven by your account balance, with an optional dynamic mode, dense-square texture, top-down dark shade and a built-in settings panel. 输入框下方状态行最右侧的余额状态条：色带随余额变化，可关动态、可换纹理与叠加。",
+  "type": "module",
+  "license": "MIT",
+  "author": "Melatonin-CZ",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Melatonin-CZ/dsh-balance-strip.git"
+  },
+  "homepage": "https://github.com/Melatonin-CZ/dsh-balance-strip#readme",
+  "bugs": {
+    "url": "https://github.com/Melatonin-CZ/dsh-balance-strip/issues"
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.0-rc.1 <0.3.0-0"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "deepseek",
+    "balance",
+    "status-bar",
+    "composer-dock",
+    "usage",
+    "plugin"
+  ],
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "src",
+    "assets",
+    "docs",
+    "scripts",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "screenshots.json",
+    "tools/*.py",
+    "tools/*.mjs"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs && node --test tests/core.test.mjs tests/host.test.mjs tests/client-bundle.test.mjs",
+    "ramp": "node scripts/build.mjs && node tools/emit-ramp.mjs",
+    "icon": "python tools/make-icon.py",
+    "configure": "node scripts/configure.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-client-locale": ">=0.1.0-rc.6 <0.3.0-0",
+    "@deepseek-ai/dsh-client-ui-conversation": ">=0.1.0-rc.6 <0.3.0-0",
+    "@deepseek-ai/dsh-client-ui-slots": ">=0.1.0-rc.6 <0.3.0-0",
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-locale": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-conversation": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-slots": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  }
+}

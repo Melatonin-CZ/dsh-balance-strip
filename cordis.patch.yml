@@ -1,0 +1,30 @@
+# dsh-balance-strip 的插件层（bundle patch）
+#
+# 装到 profile 后这一层会被插入组合配置；下面的 config 就是插件的全部可调项。
+# 键名与取值范围见 docs/PRD.md「配置表」。改完保存，DSH 的 HMR 约 1 秒内重新组合。
+- insert:
+    - id: dsh-balance-strip
+      name: dsh-balance-strip
+      config:
+        anchor: 100                   # 100% 对应金额（自己定）：余额 = 该值即满格；超过只显示 100% 的颜色
+        mode: anchor                  # anchor（按 anchor 算比例）| spent（按 余额/(余额+今日花费)）
+        dynamic: true                 # false = 静态中性条，不随余额变色
+        palette: aurora               # aurora | signal | mono | custom
+        colorHigh: '#22c55e'          # 100% 端颜色（palette: custom 时生效）
+        colorLow: '#e5484d'           # 0% 端颜色（palette: custom 时生效）
+        interpolation: oklch          # oklch | srgb
+        overlay:
+          enabled: true               # 条体黑色渐变开关
+          direction: top-dark         # top-dark | bottom-dark | uniform | off
+          top: 0.34                   # 顶部黑度
+          mid: 0.18                   # 55% 处黑度
+          bottom: 0.06                # 底部黑度
+        opacity: 0.94                 # 整条不透明度 0.2–1
+        variant: pill                 # pill | rail
+        height: 18                    # 条高 14–28（pill）
+        showAmount: true
+        showPercent: true
+        label: '余额'
+        pollSeconds: 30               # 轮询 10–600
+        apiKey: ''                    # 留空走 DSH 凭据 DEEPSEEK_API_KEY
+        baseUrl: 'https://api.deepseek.com'
