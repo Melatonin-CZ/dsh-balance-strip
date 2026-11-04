@@ -22,6 +22,52 @@
 
 > 清单接受 GitHub-only 条目，所以 PR 不必等 npm。
 
+## 发布被 2FA 挡住时（403 Two-factor authentication required）
+
+现象：
+
+```
+npm error 403 403 Forbidden - PUT https://registry.npmjs.org/dsh-balance-strip
+npm error 403 Two-factor authentication or granular access token with bypass 2fa enabled is required to publish packages.
+```
+
+说明账号开了 2FA，而当前的登录方式（密码会话）发布时必须带一次性验证码。三条路，任选：
+
+**A. 带 OTP 发布（最快，30 秒内有效）**
+
+```powershell
+npm publish --otp=123456
+```
+
+**B. Automation token（classic）—— 天然跳过 2FA，适合长期用**
+
+npmjs.com → 头像 → Access Tokens → Generate New Token → **Classic** → 类型选 **Automation** → 复制 token：
+
+```powershell
+$env:NODE_AUTH_TOKEN = '<automation-token>'
+npm publish            # publishConfig 已把 registry 钉到 npmjs，不必再写 --registry
+```
+
+**C. Granular token + 勾选 Bypass 2FA**
+
+npmjs.com → Access Tokens → **Granular** → Permissions 选 `Read and write`（或只勾本包）→ 勾 **Bypass 2FA for publish** → 复制：
+
+```powershell
+npm config set //registry.npmjs.org/:_authToken=<granular-token>
+npm publish
+```
+
+> 本机 `~/.npmrc` 的默认 registry 是 `https://registry.npmmirror.com`（只读镜像）。`package.json` 里已经加了
+> `"publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" }`，
+> 所以**发布永远去 npmjs**，本地安装仍走镜像，不需要来回切。
+
+发布成功后自查：
+
+```powershell
+npm view dsh-balance-strip version
+dsh plugin --profile desktop add dsh-balance-strip
+```
+
 ## 0. 名字与现状
 
 | 项 | 值 | 说明 |
