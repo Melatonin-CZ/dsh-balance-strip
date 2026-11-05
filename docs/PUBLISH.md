@@ -18,9 +18,12 @@
 | GitHub 仓库 | ✅ https://github.com/Melatonin-CZ/dsh-balance-strip （`main` = `7000994`，tag `v0.4.0`） |
 | 从 GitHub 安装验证 | ✅ `dsh plugin add github:Melatonin-CZ/dsh-balance-strip` → `+ dsh-balance-strip 0.4.0`（13.6s） |
 | npm 发布 | ⏳ 本机 `npm whoami` = ENEEDAUTH；`~/.npmrc` 指向 npmmirror，发布会失败。需 `npm login --registry https://registry.npmjs.org` 后 `npm publish --registry https://registry.npmjs.org --access public`（dry-run 已通过：32 files / 981.9 kB） |
-| 清单 PR | ✅ https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/11904 |
+| 清单 PR | ✅ https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/11904（`check` + `Submission gate` 双绿，`mergeable_state: clean`，等维护者合并） |
 
 > 清单接受 GitHub-only 条目，所以 PR 不必等 npm。
+>
+> 门禁曾因「仓库 <1 天」失败（`repository is 0.0 days old (needs 1)`）；24h 后重跑需要上游 admin 权限，
+> 所以推了一个空 commit 触发新一轮 `PR check` → gate 读到的年龄满足后转绿。
 
 ## 发布被 2FA 挡住时（403 Two-factor authentication required）
 
