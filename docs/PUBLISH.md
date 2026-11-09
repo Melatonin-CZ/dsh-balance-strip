@@ -67,15 +67,15 @@ npm publish          # publishConfig 已把 registry 钉到 npmjs
 发布成功后自查：
 
 ```powershell
-npm view dsh-balance-strip version
-dsh plugin --profile desktop add dsh-balance-strip
+npm view @melatonin-cz/dsh-balance-strip version
+dsh plugin --profile desktop add @melatonin-cz/dsh-balance-strip
 ```
 
 ## 0. 名字与现状
 
 | 项 | 值 | 说明 |
 |---|---|---|
-| npm 包名 | `dsh-balance-strip` | `dsh-balance-bar` 在 npm 上**已被别人占用**（registry 返回 200），所以改用了 `-strip`；`dsh-balance-bar-ui`、`balance-bar-dsh` 也空着，但 `-strip` 更准确 |
+| npm 包名 | `@melatonin-cz/dsh-balance-strip`（作用域，因为 `dsh-balance-strip` 在 2026-11-07 被 `mr_zinn` 占用了） | `dsh-balance-bar` 在 npm 上**已被别人占用**（registry 返回 200），所以改用了 `-strip`；`dsh-balance-bar-ui`、`balance-bar-dsh` 也空着，但 `-strip` 更准确 |
 | GitHub 仓库 | `dsh-balance-strip`（建议同名） | 目录名、包名、仓库名保持一致最省事 |
 | 插件 id | `dsh-balance-strip` | 宿主路由 `/dsh-balance-strip/state`、槽位 `registrant` 都用它 |
 | 分类 | `usage` | 清单要求的 category 取值之一 |
@@ -117,13 +117,13 @@ npm publish --access public
 发完自查：
 
 ```powershell
-npm view dsh-balance-strip version dist.tarball
+npm view @melatonin-cz/dsh-balance-strip version dist.tarball
 ```
 
 ## 4. 从 npm 安装验证（换一个干净 profile）
 
 ```powershell
-dsh plugin --profile strip-check add dsh-balance-strip
+dsh plugin --profile strip-check add @melatonin-cz/dsh-balance-strip
 dsh plugin --profile strip-check list --depth 0
 ```
 

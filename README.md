@@ -1,6 +1,6 @@
 # dsh-balance-strip
 
-[![npm version](https://img.shields.io/npm/v/dsh-balance-strip?label=npm)](https://www.npmjs.com/package/dsh-balance-strip)
+[![npm version](https://img.shields.io/npm/v/@melatonin-cz/dsh-balance-strip?label=npm)](https://www.npmjs.com/package/@melatonin-cz/dsh-balance-strip)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![dsh](https://img.shields.io/badge/DeepSeek%20Harness-0.2.x-4176E6)](https://github.com/deepseek-ai)
 
@@ -16,7 +16,7 @@ DSH 输入框下方状态行**最右侧**的一小截余额状态栏：金额 + 
 ## 安装
 
 ```bash
-dsh plugin --profile desktop add dsh-balance-strip
+dsh plugin --profile desktop add @melatonin-cz/dsh-balance-strip
 ```
 
 或在本机开发时直接链目录：

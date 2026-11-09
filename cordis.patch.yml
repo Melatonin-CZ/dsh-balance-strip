@@ -4,7 +4,7 @@
 # 键名与取值范围见 docs/PRD.md「配置表」。改完保存，DSH 的 HMR 约 1 秒内重新组合。
 - insert:
     - id: dsh-balance-strip
-      name: dsh-balance-strip
+      name: '@melatonin-cz/dsh-balance-strip'
       config:
         anchor: 100                   # 100% 对应金额（自己定）：余额 = 该值即满格；超过只显示 100% 的颜色
         mode: anchor                  # anchor（按 anchor 算比例）| spent（按 余额/(余额+今日花费)）

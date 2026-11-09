@@ -1,5 +1,5 @@
 {
-  "name": "dsh-balance-strip",
+  "name": "@melatonin-cz/dsh-balance-strip",
   "version": "0.4.0",
   "description": "DSH composer-dock balance strip: a 100%-green → 0%-red OKLCH ramp driven by your account balance, with an optional dynamic mode, dense-square texture, top-down dark shade and a built-in settings panel. 输入框下方状态行最右侧的余额状态条：色带随余额变化，可关动态、可换纹理与叠加。",
   "type": "module",
